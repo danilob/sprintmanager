@@ -1,0 +1,45 @@
+[{
+        "model": "level.level",
+        "pk": 1,
+        "fields": {
+            "number_level": 1,
+            "days_min": 2,
+            "days_max": 5,
+            "devs_min": 1,
+            "devs_max": 1
+        }
+    },
+    {
+        "model": "level.level",
+        "pk": 2,
+        "fields": {
+            "number_level": 2,
+            "days_min": 7,
+            "days_max": 10,
+            "devs_min": 1,
+            "devs_max": 2
+        }
+    },
+    {
+        "model": "level.level",
+        "pk": 3,
+        "fields": {
+            "number_level": 3,
+            "days_min": 12,
+            "days_max": 15,
+            "devs_min": 2,
+            "devs_max": 2
+        }
+    },
+    {
+        "model": "level.level",
+        "pk": 4,
+        "fields": {
+            "number_level": 4,
+            "days_min": 16,
+            "days_max": 19,
+            "devs_min": 2,
+            "devs_max": 3
+        }
+    }
+]

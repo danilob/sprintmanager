@@ -1,0 +1,221 @@
+[{
+        "model": "issue.issue",
+        "pk": 1,
+        "fields": {
+            "sprint": 1,
+            "level": 1,
+            "description": "Inicializar o projeto",
+            "begin_date": "2022-08-20",
+            "forecast_date": "2022-08-24",
+            "finished_date": "2022-08-23",
+            "url": "",
+            "uuid": "80641e4d-15f4-452b-be84-4564b46266c3",
+            "status": "DN",
+            "categories": [
+                2,
+                3
+            ],
+            "dependencies": []
+        }
+    },
+    {
+        "model": "issue.issue",
+        "pk": 2,
+        "fields": {
+            "sprint": 1,
+            "level": 2,
+            "description": "Fazer modelagem",
+            "begin_date": "2022-08-25",
+            "forecast_date": "2022-08-30",
+            "finished_date": "2022-09-02",
+            "url": "",
+            "uuid": "cf928fab-70b9-4ead-8f16-11458097d9bc",
+            "status": "DN",
+            "categories": [
+                3
+            ],
+            "dependencies": []
+        }
+    },
+    {
+        "model": "issue.issue",
+        "pk": 3,
+        "fields": {
+            "sprint": 1,
+            "level": 1,
+            "description": "Elaborar cronograma",
+            "begin_date": "2022-08-28",
+            "forecast_date": "2022-09-10",
+            "finished_date": "2022-09-12",
+            "url": "",
+            "uuid": "a514632e-1727-46d7-963c-49fa1bbc8201",
+            "status": "DN",
+            "categories": [
+                6
+            ],
+            "dependencies": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "issue.issue",
+        "pk": 4,
+        "fields": {
+            "sprint": 2,
+            "level": 1,
+            "description": "Criar classes de Sprint",
+            "begin_date": "2022-10-20",
+            "forecast_date": "2022-10-22",
+            "finished_date": "2022-10-22",
+            "url": "",
+            "uuid": "98d122b5-06a6-4406-a6b6-32c13f6cfb5b",
+            "status": "DN",
+            "categories": [
+                3
+            ],
+            "dependencies": []
+        }
+    },
+    {
+        "model": "issue.issue",
+        "pk": 5,
+        "fields": {
+            "sprint": 2,
+            "level": 1,
+            "description": "Criar classes de Categoria",
+            "begin_date": "2022-10-20",
+            "forecast_date": "2022-10-23",
+            "finished_date": "2022-10-24",
+            "url": "",
+            "uuid": "903ef735-d879-416e-9ea2-731857c96f68",
+            "status": "TD",
+            "categories": [
+                3
+            ],
+            "dependencies": []
+        }
+    },
+    {
+        "model": "issue.issue",
+        "pk": 6,
+        "fields": {
+            "sprint": 2,
+            "level": 1,
+            "description": "Criar classe de Level",
+            "begin_date": "2022-10-26",
+            "forecast_date": "2022-10-28",
+            "finished_date": "2022-10-28",
+            "url": "",
+            "uuid": "053f545e-833b-4e42-bc4f-ce3e62e41d8a",
+            "status": "DN",
+            "categories": [
+                3
+            ],
+            "dependencies": []
+        }
+    },
+    {
+        "model": "issue.issue",
+        "pk": 7,
+        "fields": {
+            "sprint": 2,
+            "level": 2,
+            "description": "Criar classe de Issue",
+            "begin_date": "2022-10-29",
+            "forecast_date": "2022-11-05",
+            "finished_date": "2022-11-25",
+            "url": "",
+            "uuid": "db3efe93-dae1-4502-9132-2f0b7a1d4a08",
+            "status": "DN",
+            "categories": [
+                3
+            ],
+            "dependencies": [
+                5,
+                4,
+                6
+            ]
+        }
+    },
+    {
+        "model": "issue.issue",
+        "pk": 8,
+        "fields": {
+            "sprint": 3,
+            "level": 2,
+            "description": "Elaborar página de busca de Issue por Sprint",
+            "begin_date": "2023-01-15",
+            "forecast_date": "2023-01-18",
+            "finished_date": null,
+            "url": "",
+            "uuid": "de2c7128-0183-4967-8990-94f213b39807",
+            "status": "DG",
+            "categories": [
+                2,
+                3,
+                6
+            ],
+            "dependencies": []
+        }
+    },
+    {
+        "model": "issue.issue",
+        "pk": 9,
+        "fields": {
+            "sprint": 3,
+            "level": 2,
+            "description": "Desenvolver página de Gráficos por Sprint",
+            "begin_date": "2023-01-19",
+            "forecast_date": "2023-01-23",
+            "finished_date": null,
+            "url": "",
+            "uuid": "1f3584dd-fe5c-4769-be73-1fbfed2b5489",
+            "status": "TD",
+            "categories": [
+                3
+            ],
+            "dependencies": [
+                8
+            ]
+        }
+    },
+    {
+        "model": "issue.issue",
+        "pk": 10,
+        "fields": {
+            "sprint": 3,
+            "level": 2,
+            "description": "Reimplementar lógica de consultas",
+            "begin_date": "2023-01-20",
+            "forecast_date": "2023-01-25",
+            "finished_date": null,
+            "url": "",
+            "uuid": "ac62adf4-ad5b-4170-bd98-e98f1ec4a51c",
+            "status": "TD",
+            "categories": [
+                1
+            ],
+            "dependencies": []
+        }
+    },
+    {
+        "model": "issue.issue",
+        "pk": 11,
+        "fields": {
+            "sprint": 3,
+            "level": 3,
+            "description": "Fazer rotas baseadas em API Rest",
+            "begin_date": "2023-01-15",
+            "forecast_date": "2023-01-17",
+            "finished_date": "2023-01-17",
+            "url": "",
+            "uuid": "d561ec03-6852-4351-876c-1d63630f1d13",
+            "status": "DN",
+            "categories": [
+                3
+            ],
+            "dependencies": []
+        }
+    }
+]

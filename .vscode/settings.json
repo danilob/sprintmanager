@@ -1,0 +1,10 @@
+{
+  "editor.formatOnSave": true,
+  "python.formatting.provider": "black",
+  "json.format.enable": true,
+  "editor.fontSize": 14,
+  // terminal
+  "terminal.integrated.fontSize": 14,
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+}

@@ -1,0 +1,37 @@
+[{
+        "model": "sprint.sprint",
+        "pk": 1,
+        "fields": {
+            "description": "2022.1",
+            "begin_date": "2022-08-20",
+            "forecast_date": "2022-09-20",
+            "finished_date": "2022-09-15",
+            "url": "",
+            "uuid": "9f2bd36b-4932-4836-95e4-7dba3dabd205"
+        }
+    },
+    {
+        "model": "sprint.sprint",
+        "pk": 2,
+        "fields": {
+            "description": "2022.2",
+            "begin_date": "2022-10-20",
+            "forecast_date": "2022-11-20",
+            "finished_date": "2022-11-25",
+            "url": "",
+            "uuid": "f86fba1a-ac73-41ac-88fe-a64c2f5065cd"
+        }
+    },
+    {
+        "model": "sprint.sprint",
+        "pk": 3,
+        "fields": {
+            "description": "2023.1",
+            "begin_date": "2023-01-15",
+            "forecast_date": "2023-02-15",
+            "finished_date": null,
+            "url": "",
+            "uuid": "7dd7d5de-b28a-4699-ab6b-8f99e4cf5821"
+        }
+    }
+]

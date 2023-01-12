@@ -1,0 +1,49 @@
+[{
+        "model": "category.category",
+        "pk": 1,
+        "fields": {
+            "description": "bug",
+            "uuid": "95310efa-8be0-4a21-b50e-5cbad6909df6"
+        }
+    },
+    {
+        "model": "category.category",
+        "pk": 2,
+        "fields": {
+            "description": "demand",
+            "uuid": "546e17ec-51c7-498b-a308-868c39ab7cbe"
+        }
+    },
+    {
+        "model": "category.category",
+        "pk": 3,
+        "fields": {
+            "description": "feature",
+            "uuid": "0c3ea7b8-3938-4fba-ac6c-240185d19977"
+        }
+    },
+    {
+        "model": "category.category",
+        "pk": 4,
+        "fields": {
+            "description": "refactoration",
+            "uuid": "c610323a-8812-46c7-8452-bcac3e3ba1d0"
+        }
+    },
+    {
+        "model": "category.category",
+        "pk": 5,
+        "fields": {
+            "description": "report",
+            "uuid": "f0d45494-b0e7-4663-ae5e-1cb392d786c8"
+        }
+    },
+    {
+        "model": "category.category",
+        "pk": 6,
+        "fields": {
+            "description": "graph",
+            "uuid": "c6da7df1-b993-46df-8c24-08befa232c83"
+        }
+    }
+]

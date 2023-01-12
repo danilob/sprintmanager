@@ -17,7 +17,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -25,6 +25,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+THIRD_APPS = []
+
+MY_APPS = [
+    'apps.category',
+    'apps.level',
+    'apps.sprint',
+    'apps.issue',
+]
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_APPS + MY_APPS
+
 
 # REST_FRAMEWORK = {
 #     # Use Django's standard `django.contrib.auth` permissions,
