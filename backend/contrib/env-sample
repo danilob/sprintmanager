@@ -1,0 +1,14 @@
+SECRET_KEY=
+ALLOWED_HOSTS=*
+DEBUG=True
+
+USE_SQLITE=True
+
+#configuracoes do banco_de_dados para postgresql
+DATABASE=postgres
+DATABASE_ENGINE=django.db.backends.postgresql
+DATABASE_NAME=sprintmanager
+DATABASE_USER=sprintmanager
+DATABASE_PASSWORD=sprintmanager
+DATABASE_HOST=db
+DATABASE_PORT=5432
