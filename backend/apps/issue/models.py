@@ -66,12 +66,12 @@ class Issue(models.Model):
         return self.categories.values_list('description', flat=True)
 
     @staticmethod
-    def issues_by_level(level: Level) -> Union[QuerySet, List[Level]]:
+    def issues_by_level(level: Level) -> Union[QuerySet, List['Issue']]:
         # return Issue.objects.filter(level=level)
         return level.issue_set.all()
 
     @staticmethod
-    def issues_by_category(category: Category) -> Union[QuerySet, List[Category]]:
+    def issues_by_category(category: Category) -> Union[QuerySet, List['Issue']]:
         # return Issue.objects.filter(categories__in=[category])
         return category.issue_categories.all()
 
