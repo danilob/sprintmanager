@@ -25,14 +25,18 @@ class Sprint(models.Model):
     def __str__(self):
         return self.description
 
-    # def how_many_issues(self) -> int:
+    # def how_many_categories(self) -> int:
     #     pass
 
-    # def issues(self) -> Union[QuerySet, List[Issue]]:
+    # def name_categories(self) -> Union[QuerySet, List[str]]:
     #     pass
 
-    # @property
-    # def has_finished(self) -> bool:
+    # @staticmethod
+    # def issues_by_level(level: Level) -> Union[QuerySet, List['Issue']]:
+    #     pass
+
+    # @staticmethod
+    # def issues_by_category(category: Category) -> Union[QuerySet, List['Issue']]:
     #     pass
 
     def save(self, *args, **kwargs):
