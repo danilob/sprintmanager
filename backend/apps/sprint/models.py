@@ -11,7 +11,10 @@ class Sprint(models.Model):
     finished_date = models.DateField(null=True, blank=True)
     url = models.URLField(blank=True)
     uuid = models.UUIDField(
-        db_index=True, default=uuid_lib.uuid4, unique=True, editable=False
+        db_index=True,
+        default=uuid_lib.uuid4,
+        unique=True,
+        editable=False,
     )
 
     class Meta:

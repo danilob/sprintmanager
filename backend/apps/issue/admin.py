@@ -13,6 +13,9 @@ class IssueAdmin(admin.ModelAdmin):
         'status',
     ]
     search_fields = ['description']
+    list_filter = [
+        'status',
+    ]
 
 
 admin.site.register(Issue, IssueAdmin)
