@@ -1,6 +1,7 @@
 from django.db import models
 
 # from typing import Union, List
+# from django.db.models import QuerySet
 import uuid as uuid_lib
 
 
@@ -25,15 +26,22 @@ class Sprint(models.Model):
     def __str__(self):
         return self.description
 
-    # def how_many_issues(self) -> int:
+    def how_many_issues(self) -> int:
+        return self.issue_set.count()
+
+    # def issues(self) -> Union[QuerySet, List['Issue']]:
     #     pass
 
-    # def issues(self) -> Union[QuerySet, List[Issue]]:
-    #     pass
+    @property
+    def has_finished(self) -> bool:
+        from apps.issue.models import Issue
 
-    # @property
-    # def has_finished(self) -> bool:
-    #     pass
+        issues = self.issue_set.all()
+        if issues.count() > 0:
+            if issues.exclude(status=Issue.DONE).exists():
+                return False
+            return True
+        return False
 
     def save(self, *args, **kwargs):
         if not self.id:
