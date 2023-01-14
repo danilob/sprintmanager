@@ -26,7 +26,9 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
-THIRD_APPS = []
+THIRD_APPS = [
+    'rest_framework',
+]
 
 MY_APPS = [
     'apps.category',
