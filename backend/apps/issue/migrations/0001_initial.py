@@ -36,7 +36,10 @@ class Migration(migrations.Migration):
                 (
                     'uuid',
                     models.UUIDField(
-                        db_index=True, default=uuid.uuid4, editable=False, unique=True
+                        db_index=True,
+                        default=uuid.uuid4,
+                        editable=False,
+                        unique=True,
                     ),
                 ),
                 (
@@ -58,7 +61,10 @@ class Migration(migrations.Migration):
                         related_name='issue_categories', to='category.category'
                     ),
                 ),
-                ('dependencies', models.ManyToManyField(blank=True, to='issue.issue')),
+                (
+                    'dependencies',
+                    models.ManyToManyField(blank=True, to='issue.issue'),
+                ),
                 (
                     'level',
                     models.ForeignKey(

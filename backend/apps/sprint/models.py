@@ -1,7 +1,7 @@
 from django.db import models
 
-# from typing import Union, List
-# from django.db.models import QuerySet
+from typing import Union, List
+from django.db.models import QuerySet
 import uuid as uuid_lib
 
 
@@ -42,6 +42,53 @@ class Sprint(models.Model):
                 return False
             return True
         return False
+
+    def is_sprint_delivered_late(self) -> bool:
+        return (
+            (self.finished_date - self.begin_date)
+            > (self.forecast_date - self.begin_date)
+            if (self.finished_date)
+            else None
+        )
+
+    def sprint_delivered_late() -> Union[QuerySet, List['Sprint']]:
+        from django.db.models import F
+        from django.db.models.lookups import GreaterThan
+
+        return (
+            Sprint.objects.filter(finished_date__isnull=False)
+            .annotate(
+                is_late=GreaterThan(
+                    F('finished_date') - F('begin_date'),
+                    F('forecast_date') - F('begin_date'),
+                )
+            )
+            .filter(is_late=True)
+        )
+
+    @property
+    def complexity_level(self) -> int:
+        from django.db.models import Sum
+
+        # Sprint.objects.queryset.annotate(
+        #     _level_complexity_sum=Sum("issue__level__number_level"),
+        # )
+        return Sprint.objects.filter(uuid=self.uuid).aggregate(
+            sum_level=Sum('issue__level__number_level')
+        )['sum_level']
+
+    def sumarize_categories_count(self) -> list:
+        from django.db.models import F, Count
+
+        # Sprint.objects.values(
+        #     'description', 'issue__categories__description'
+        # ).annotate(qtde=Count('issue__categories__description'))
+        return (
+            Sprint.objects.annotate(category=F('issue__categories__description'))
+            .values('category')
+            .annotate(qtde=Count('issue__categories__description'))
+            .filter(uuid=self.uuid)
+        )
 
     def save(self, *args, **kwargs):
         if not self.id:
