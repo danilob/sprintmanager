@@ -10,7 +10,8 @@ random = random.SystemRandom()
 
 def get_random_string(
     length=12,
-    allowed_chars='abcdefghijklmnopqrstuvwxyz' 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789',
+    allowed_chars='abcdefghijklmnopqrstuvwxyz'
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789',
 ):
     """
     Returns a securely generated random string.
