@@ -14,11 +14,12 @@ class SprintAdmin(admin.ModelAdmin):
 
     def get_queryset(self, request):
         # https://books.agiliq.com/projects/django-admin-cookbook/en/latest/sorting_calculated_fields.html
-        from django.db.models import Sum
+        from django.db.models import Sum, Count
 
         queryset = super().get_queryset(request)
         queryset = queryset.annotate(
             _level_complexity_sum=Sum("issue__level__number_level"),
+            _issue_count=Count("issue"),
         )
         return queryset
 
@@ -32,6 +33,7 @@ class SprintAdmin(admin.ModelAdmin):
         return obj.complexity_level
 
     complexity_level.admin_order_field = '_level_complexity_sum'
+    issue_count.admin_order_field = '_issue_count'
 
 
 admin.site.register(Sprint, SprintAdmin)

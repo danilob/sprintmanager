@@ -4,7 +4,11 @@ from .models import Level
 
 
 class LevelAdmin(admin.ModelAdmin):
-    pass
+    list_display = [
+        'number_level',
+        'days',
+        'devs',
+    ]
 
 
 admin.site.register(Level, LevelAdmin)

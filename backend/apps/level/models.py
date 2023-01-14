@@ -16,5 +16,15 @@ class Level(models.Model):
     def __str__(self):
         return f'level - {self.number_level}'
 
+    @property
+    def devs(self) -> str:
+        if self.devs_min == self.devs_max:
+            return f'{self.devs_max}'
+        return f'from {self.devs_min} to {self.devs_max}'
+
+    @property
+    def days(self) -> str:
+        return f'from {self.days_min} to {self.days_max}'
+
     def save(self, *args, **kwargs):
         super(Level, self).save(*args, **kwargs)

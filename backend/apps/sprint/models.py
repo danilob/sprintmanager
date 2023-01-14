@@ -45,12 +45,10 @@ class Sprint(models.Model):
 
     def is_sprint_delivered_late(self) -> bool:
         return (
-            (self.finished_date - self.begin_date)
-            > (self.forecast_date - self.begin_date)
-            if (self.finished_date)
-            else None
+            self.finished_date > self.forecast_date if (self.finished_date) else None
         )
 
+    @staticmethod
     def sprint_delivered_late() -> Union[QuerySet, List['Sprint']]:
         from django.db.models import F
         from django.db.models.lookups import GreaterThan
@@ -70,9 +68,9 @@ class Sprint(models.Model):
     def complexity_level(self) -> int:
         from django.db.models import Sum
 
-        # Sprint.objects.queryset.annotate(
-        #     _level_complexity_sum=Sum("issue__level__number_level"),
-        # )
+        Sprint.objects.annotate(
+            _level_complexity_sum=Sum("issue__level__number_level"),
+        )
         return Sprint.objects.filter(uuid=self.uuid).aggregate(
             sum_level=Sum('issue__level__number_level')
         )['sum_level']
