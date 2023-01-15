@@ -59,3 +59,33 @@ class IssueSerializer(serializers.ModelSerializer):
             'status',
         ]
         extra_kwargs = {'sprint': {'required': False}}
+
+    def validate_description(self, value):
+        from django.forms import ValidationError
+
+        if len(value) <= 4:
+            raise ValidationError("Deve ter pelo menos cinco caracteres.")
+        return value
+
+
+class IssueCustomSerializer(serializers.ModelSerializer):
+    sprint = SprintRelatedField(queryset=Sprint.objects.all(), many=False)
+    diff_date = serializers.CharField()
+
+    class Meta:
+        model = Issue
+        fields = [
+            'uuid',
+            'sprint',
+            'description',
+            'begin_date',
+            'finished_date',
+            'diff_date',
+        ]
+        extra_kwargs = {'sprint': {'required': False}}
+
+
+class IssueCustomDurationSerializer(serializers.Serializer):
+    sprint_name = serializers.CharField()
+    days = serializers.IntegerField()
+    description = serializers.CharField()
