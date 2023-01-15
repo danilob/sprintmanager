@@ -9,7 +9,7 @@ urlpatterns = [
         view=LevelCreateAPIView.as_view(),
         name='level_api',
     ),
-    # api/level/:uuid/
+    # api/level/:id/
     path(
         route='level/<int:pk>/',
         view=LevelRetrieveUpdateDestroyAPIView.as_view(),
