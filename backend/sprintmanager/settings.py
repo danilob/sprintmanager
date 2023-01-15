@@ -26,7 +26,11 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
-THIRD_APPS = []
+THIRD_APPS = [
+    'rest_framework',
+    'rest_framework.authtoken',
+    'drf_yasg',
+]
 
 MY_APPS = [
     'apps.category',
@@ -38,13 +42,13 @@ MY_APPS = [
 INSTALLED_APPS = DJANGO_APPS + THIRD_APPS + MY_APPS
 
 
-# REST_FRAMEWORK = {
-#     # Use Django's standard `django.contrib.auth` permissions,
-#     # or allow read-only access for unauthenticated users.
-#     'DEFAULT_PERMISSION_CLASSES': [
-#         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-#     ]
-# }
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    # ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
