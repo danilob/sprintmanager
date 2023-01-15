@@ -59,3 +59,10 @@ class IssueSerializer(serializers.ModelSerializer):
             'status',
         ]
         extra_kwargs = {'sprint': {'required': False}}
+
+    # def validate_description(self, value):
+    #     from django.forms import ValidationError
+
+    #     if len(value) <= 4:
+    #         raise ValidationError("Deve ter pelo menos cinco caracteres.")
+    #     return value
