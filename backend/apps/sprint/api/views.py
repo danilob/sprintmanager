@@ -27,8 +27,8 @@ from rest_framework import status
 
 
 class ListLateSprint(APIView):
-    # authentication_classes = [authentication.TokenAuthentication]
-    # permission_classes = [permissions.IsAdminUser]
+    authentication_classes = [authentication.TokenAuthentication]
+    permission_classes = [permissions.IsAdminUser]
 
     def get(self, request, format=None):
         sprints_late = Sprint.sprint_delivered_late()
