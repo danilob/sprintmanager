@@ -37,6 +37,7 @@ MY_APPS = [
     'apps.level',
     'apps.sprint',
     'apps.issue',
+    'frontend',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_APPS + MY_APPS

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;800;900&display=swap"
+      rel="stylesheet"
+    />
+    {% comment %}
+    <link href="{% static 'expenses/css/core.css' %}" rel="stylesheet" />
+    {% endcomment %}
+  </head>
+  <body>
+    <header><h1>Sprint Manager</h1></header>
+    <main>
+      <section id="abstract-sprint">
+        <div id="sprint-in-progress">
+          <span id="count-sprint-in-progress">1</span>
+          <p class="inline-text">In progress</p>
+        </div>
+        <div id="sprint-closed">
+          <span id="count-sprint-in-progress">5</span>
+          <p class="inline-text">Closed</p>
+        </div>
+        <div id="sprint-list">
+          <select name="sprints" id="sprint-select">
+            <option value="">All</option>
+            <option value="uuid">Sprint 1</option>
+            <option value="uuid">Sprint 2</option>
+          </select>
+        </div>
+      </section>
+      <section id="abstract-issue">
+        <div id="issue-count-status">
+          <section id="abstract-issue-left">
+            <span id="count-issues">70</span>
+            <p class="inline-text">issues</p>
+          </section>
+          <section id="abstract-issue-right">
+            <div class="issue-opened">
+              <span id="count-issues-to-do">20</span>
+              <p class="inline-text">to do</p>
+            </div>
+            <div class="issue-opened">
+              <span id="count-issues-in-progress">30</span>
+              <p class="inline-text">in progress</p>
+            </div>
+            <div class="issue-opened">
+              <span id="count-issues-in-review">10</span>
+              <p class="inline-text">in review</p>
+            </div>
+            <div class="issue-closed">
+              <span id="count-issues-done">10</span>
+              <p class="inline-text">done</p>
+            </div>
+          </section>
+        </div>
+        <div id="issue-category">
+          <!-- Gráfico -->
+        </div>
+      </section>
+      <section id="sprint-issue-data">
+        <section id="header">
+          <div class="col-1"><p>sprint</p></div>
+          <div class="col-2"><p>issue</p></div>
+          <div class="col-1"><p>status</p></div>
+          <div class="col-1"><p>days</p></div>
+        </section>
+        <section class="items-sprint-issue">
+          <div class="sprint-item">
+            <div><p>2022.1</p></div>
+            <div><p>Criar funcionalidade de envio</p></div>
+            <div><p>In progress</p></div>
+            <div><p>-</p></div>
+          </div>
+          <div class="sprint-item">
+            <div><p>2022.1</p></div>
+            <div><p>Criar funcionalidade de envio</p></div>
+            <div><p>To do</p></div>
+            <div><p>-</p></div>
+          </div>
+          <div class="sprint-item">
+            <div><p>2022.1</p></div>
+            <div><p>Criar funcionalidade de envio</p></div>
+            <div><p>Review</p></div>
+            <div><p>-</p></div>
+          </div>
+          <div class="sprint-item">
+            <div><p>2022.1</p></div>
+            <div><p>Criar funcionalidade de envio</p></div>
+            <div><p>Done</p></div>
+            <div><p>20</p></div>
+          </div>
+        </section>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>
