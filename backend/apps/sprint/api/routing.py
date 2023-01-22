@@ -5,6 +5,7 @@ from .views import (
     SprintRetrieveUpdateDestroyAPIView,
     ListLateSprint,
     CategoriesBySprint,
+    SprintChartJson
 )
 
 urlpatterns = [
@@ -31,5 +32,11 @@ urlpatterns = [
         route='sprint/categories/<uuid:uuid>/',
         view=CategoriesBySprint.as_view(),
         name='sprint_categories_api',
+    ),
+    # api/sprint/chart/json/
+    path(
+        route='sprint/json/',
+        view=SprintChartJson.as_view(),
+        name='sprint_chart_api',
     ),
 ]

@@ -11,24 +11,23 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;800;900&display=swap"
       rel="stylesheet"
     />
-    {% comment %}
-    <link href="{% static 'expenses/css/core.css' %}" rel="stylesheet" />
-    {% endcomment %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet" />
   </head>
   <body>
     <header><h1>Sprint Manager</h1></header>
     <main>
       <section id="abstract-sprint">
-        <div id="sprint-in-progress">
-          <span id="count-sprint-in-progress">1</span>
+        <div id="sprint-in-progress" class="side-by-side">
+          <span id="count-sprint-in-progress" class="c-opened s-2">1</span>
           <p class="inline-text">In progress</p>
         </div>
-        <div id="sprint-closed">
-          <span id="count-sprint-in-progress">5</span>
+        <div id="sprint-closed" class="side-by-side">
+          <span id="count-sprint-in-progress" class="c-closed s-2">5</span>
           <p class="inline-text">Closed</p>
         </div>
         <div id="sprint-list">
-          <select name="sprints" id="sprint-select">
+          <select name="sprints" id="sprint-select" class="custom-select">
             <option value="">All</option>
             <option value="uuid">Sprint 1</option>
             <option value="uuid">Sprint 2</option>
@@ -37,24 +36,24 @@
       </section>
       <section id="abstract-issue">
         <div id="issue-count-status">
-          <section id="abstract-issue-left">
+          <section id="abstract-issue-left" class="side-by-side">
             <span id="count-issues">70</span>
             <p class="inline-text">issues</p>
           </section>
           <section id="abstract-issue-right">
-            <div class="issue-opened">
+            <div class="c-opened side-by-side">
               <span id="count-issues-to-do">20</span>
               <p class="inline-text">to do</p>
             </div>
-            <div class="issue-opened">
+            <div class="c-opened side-by-side">
               <span id="count-issues-in-progress">30</span>
               <p class="inline-text">in progress</p>
             </div>
-            <div class="issue-opened">
+            <div class="c-opened side-by-side">
               <span id="count-issues-in-review">10</span>
               <p class="inline-text">in review</p>
             </div>
-            <div class="issue-closed">
+            <div class="c-closed side-by-side">
               <span id="count-issues-done">10</span>
               <p class="inline-text">done</p>
             </div>
@@ -71,30 +70,30 @@
           <div class="col-1"><p>status</p></div>
           <div class="col-1"><p>days</p></div>
         </section>
-        <section class="items-sprint-issue">
-          <div class="sprint-item">
-            <div><p>2022.1</p></div>
-            <div><p>Criar funcionalidade de envio</p></div>
-            <div><p>In progress</p></div>
-            <div><p>-</p></div>
+        <section id="items-sprint-issue">
+          <div class="sprint-item b-opened rounded">
+            <div class="col-1"><p>2022.1</p></div>
+            <div class="col-2"><p>Criar funcionalidade de envio</p></div>
+            <div class="col-1"><p>In progress</p></div>
+            <div class="col-1"><p>-</p></div>
           </div>
-          <div class="sprint-item">
-            <div><p>2022.1</p></div>
-            <div><p>Criar funcionalidade de envio</p></div>
-            <div><p>To do</p></div>
-            <div><p>-</p></div>
+          <div class="sprint-item b-opened rounded">
+            <div class="col-1"><p>2022.1</p></div>
+            <div class="col-2"><p>Criar funcionalidade de envio</p></div>
+            <div class="col-1"><p>To do</p></div>
+            <div class="col-1"><p>-</p></div>
           </div>
-          <div class="sprint-item">
-            <div><p>2022.1</p></div>
-            <div><p>Criar funcionalidade de envio</p></div>
-            <div><p>Review</p></div>
-            <div><p>-</p></div>
+          <div class="sprint-item b-opened rounded">
+            <div class="col-1"><p>2022.1</p></div>
+            <div class="col-2"><p>Criar funcionalidade de envio</p></div>
+            <div class="col-1"><p>Review</p></div>
+            <div class="col-1"><p>-</p></div>
           </div>
-          <div class="sprint-item">
-            <div><p>2022.1</p></div>
-            <div><p>Criar funcionalidade de envio</p></div>
-            <div><p>Done</p></div>
-            <div><p>20</p></div>
+          <div class="sprint-item b-closed rounded">
+            <div class="col-1"><p>2022.1</p></div>
+            <div class="col-2"><p>Criar funcionalidade de envio</p></div>
+            <div class="col-1"><p>Done</p></div>
+            <div class="col-1"><p>20</p></div>
           </div>
         </section>
       </section>
