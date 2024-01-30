@@ -11,6 +11,15 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;800;900&display=swap"
       rel="stylesheet"
     />
+
+    <link href="{% static 'css/dc.css' %}" rel="stylesheet" />
+
+    <script src="{% static 'js/crossfilter.js' %}" charset="utf-8"></script>
+
+    <script src="{% static 'js/reductio.js' %}" charset="utf-8"></script>
+    <script src="{% static 'js/d3.js' %}" charset="utf-8"></script>
+    <script src="{% static 'js/dc.js' %}" charset="utf-8"></script>
+
     <link href="{% static 'css/style.css' %}" rel="stylesheet" />
     <link href="{% static 'css/custom.css' %}" rel="stylesheet" />
   </head>
@@ -27,11 +36,7 @@
           <p class="inline-text">Closed</p>
         </div>
         <div id="sprint-list">
-          <select name="sprints" id="sprint-select" class="custom-select">
-            <option value="">All</option>
-            <option value="uuid">Sprint 1</option>
-            <option value="uuid">Sprint 2</option>
-          </select>
+          <div id="select-list"></div>
         </div>
       </section>
       <section id="abstract-issue">
@@ -60,7 +65,7 @@
           </section>
         </div>
         <div id="issue-category">
-          <!-- Gráfico -->
+          <div id="bar-chart"></div>
         </div>
       </section>
       <section id="sprint-issue-data">
@@ -99,5 +104,87 @@
       </section>
     </main>
     <footer></footer>
+    <script>
+      var chart = new dc.BarChart("#bar-chart");
+
+      var select_sprint = new dc.SelectMenu("#select-list");
+
+      document.querySelector("#count-issues").innerHTML = "";
+      var count_issues = new dc.NumberDisplay("#count-issues");
+
+      function getColor() {
+        return ["#fda769", "#abc270"];
+      }
+
+      dataset = d3
+        .json("{% url 'api_sprint:sprint_chart_api' %}")
+        .then(function (data) {
+          data.forEach(function (d, i) {
+            d.issue = d["issue_uuid"];
+            d.category = d["category"];
+            d.status = d["status_issue"];
+            d.sprint = d["sprint_description"];
+            //d.facebook = +d.facebook;
+          });
+          facts = crossfilter(data);
+          issueDim = facts.dimension((d) => d.issue);
+          sprintDim = facts.dimension((d) => d.sprint);
+          categoryDim = facts.dimension((d) => d.category);
+          categoryDimGroup = categoryDim.group();
+          issueDimGroup = issueDim.groupAll();
+
+          /*
+          var reducer = reductio()
+            .exception(function (d) {
+              return d.issue;
+            })
+            .exceptionCount(true);
+
+          reducer(issueDimGroup);
+          */
+          count_issues
+            .group(issueDimGroup)
+            .formatNumber(d3.format("d"))
+            .valueAccessor(function (d) {
+              return d;
+            });
+
+          count_issues.render();
+
+          select_sprint
+            .dimension(sprintDim)
+            .group(sprintDim.group())
+            .title(function (d) {
+              return d.key;
+            })
+            .controlsUseVisibility(true);
+
+          select_sprint.render();
+
+          var categoryStatusClosedGroup = categoryDim
+            .group()
+            .reduceSum(function (d) {
+              return d.status == false ? 1 : 0;
+            });
+          var categoryStatusOpenedGroup = categoryDim
+            .group()
+            .reduceSum(function (d) {
+              return d.status == true ? 1 : 0;
+            });
+
+          chart
+            .margins({ top: 10, right: 10, bottom: 20, left: 30 })
+            .dimension(categoryDim)
+            .group(categoryStatusClosedGroup)
+            .stack(categoryStatusOpenedGroup)
+            .gap(19)
+            .x(d3.scaleOrdinal())
+            .renderHorizontalGridLines(true)
+            .colors(getColor())
+            .xUnits(dc.units.ordinal);
+
+          chart.render();
+        });
+    </script>
   </body>
 </html>

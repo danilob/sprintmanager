@@ -99,8 +99,7 @@ main {
   justify-content: space-around;
 }
 #issue-count-status,
-#abstract-issue-right,
-#issue-category {
+#abstract-issue-right {
   border: 1px solid #eee;
 }
 
@@ -127,7 +126,6 @@ main {
   flex-wrap: wrap;
 }
 
-#issue-category,
 #sprint-issue-data {
   border: 1px solid #eee;
   margin-top: 0.5em;

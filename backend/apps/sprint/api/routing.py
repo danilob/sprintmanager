@@ -7,6 +7,7 @@ from .views import (
     CategoriesBySprint,
     SprintChartJson
 )
+app_name = 'api_sprint'
 
 urlpatterns = [
     # api/sprint/

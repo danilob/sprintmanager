@@ -48,6 +48,7 @@ class CategoriesBySprint(APIView):
 class SprintChartJson(APIView):
     def get(self, request, format=None):
         from apps.issue.models import Issue
-        from django.db.models import F
-        dataset_all = Issue.objects.annotate(sprint_uuid=F("sprint__uuid"),sprint_description=F("sprint__description"),category=F("categories__description")).values("sprint_uuid","sprint_description","uuid","category")
+        from django.db.models import BooleanField
+        from django.db.models import F, When, Value,Case
+        dataset_all = Issue.objects.annotate(sprint_uuid=F("sprint__uuid"),sprint_description=F("sprint__description"),category=F("categories__description"),status_issue=Case(When(status = Issue.DONE, then=Value(True)), default=Value(False),output_field=BooleanField())).values("sprint_uuid","sprint_description","uuid","category","status_issue")
         return Response(dataset_all, status.HTTP_200_OK)
